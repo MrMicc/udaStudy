@@ -1,0 +1,148 @@
+
+* {
+    font-family: 'Lato', sans-serif;
+    color: #5e6050;
+}
+
+body {
+    background-color: #f9faf9;
+}
+
+h1 {
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+
+h3 {
+    font-weight: 300;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+h2 {
+    font-weight: 300;
+    color: #7d97ad;
+    width: 100%;
+}
+
+
+
+
+/***************************
+HEADER
+**************************** */
+.header_menu {
+
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+
+.header_title {
+    text-align: right;
+
+}
+
+
+.header_title_content::after {
+    content: "Luiz Miccieli";
+}
+
+.header_title_subcontent::after {
+    content: "Project management and consulting";
+}
+
+
+
+hr {
+    border: 2px solid;
+    width: 100%;
+    color: #7d97ad;
+    margin-bottom: 5px;
+    margin-top: 10px;
+
+}
+
+
+/***************************
+CONTENT
+*****************************/
+.main_content {
+    width: 100%;
+    margin: auto;
+    max-width: 960px;
+
+
+}
+
+.main_content img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    padding-left: 0;
+}
+
+
+
+
+.main_content_about span {
+    margin-left: 0;
+    font-weight: 300;
+    padding:0 10px;
+
+}
+
+
+
+
+
+/***************************
+FEATURE WORK
+*****************************/
+
+.feature_work {
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.works {
+    border: thin solid;
+    color:  #7d97ad;
+    background-color: #fbfcfb;
+    padding: 10px;
+    margin-bottom: 2%;
+    width: 100%;
+}
+
+
+.works img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+
+}
+
+.work_description {
+    font-weight: 300;
+}
+
+.work_introduction {
+    font-style: italic;
+}
+
+.work_items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.work_label {
+    font-weight: bold;
+    font-style: normal;
+}

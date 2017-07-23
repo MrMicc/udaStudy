@@ -1,0 +1,11 @@
+{
+  "name": "project-portfolio",
+  "version": "0.0.1",
+  "description": "This project is a exercise made for study",
+  "author": "Luiz Miccieli",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-cssmin": "^2.2.0"
+  }
+}
