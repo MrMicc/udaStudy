@@ -40,7 +40,26 @@ var bio = {
             start: "Setember - 2013",
             end: "Until now"
         },
-        location: "Brasilia"
+        location: "Brasilia",
+        projects: [{
+            title: "Title of first project",
+            client: "XPTO",
+            dates: {
+                start: 2012,
+                end: 2015
+            },
+            country: {
+                name: 'Esse nome',
+                city: 'essa ai',
+                flag: '🇧🇷'
+            },
+            description: "Lorem ipsum lorem lorem aleluia",
+            image: {
+                mobile: "http://via.placeholder.com/250x100",
+                destkop: "https://via.placeholder.com/300x150",
+                alt: "lorem lorem"
+            }
+        }]
         },
         {
             title: "Title of Second  job",
@@ -51,22 +70,31 @@ var bio = {
                 start: "Setember - 2007",
                 end: "Setember - 2013"
             },
-            location: "Brasilia"
-        }
+            location: "Brasilia",
+            projects: [{
+                title: "Title of second project",
+                client: "XPTO",
+                dates: {
+                    start: 2012,
+                    end: 2015
+                },
+                country: {
+                    name: 'Esse nome',
+                    city: 'I dont know',
+                    flag: '🇧🇷'
+                },
+                description: "Lorem ipsum lorem lorem aleluia",
+                image: {
+                    mobile: "http://via.placeholder.com/250x100",
+                    destkop: "https://via.placeholder.com/300x150",
+                    alt: "lorem lorem"
+                }
+            }]
+        },
+
     ],
 
-    projects: [{
-        title: "Title of first project",
-        dates: {
-            start: 2012,
-            end: 2015
-        },
-        description: "Lorem ipsum lorem lorem aleluia",
-        images: [
-            "images/197x148.gif",
-            "images/197x148.gif"
-        ]
-    }],
+
     education: {
         schools: [
             {
@@ -190,3 +218,45 @@ function mainSection() {
  *
  *************************/
 //TODO needs to be done :)
+$(featuredWorkSection);
+function featuredWorkSection() {
+    $('#featuredWork').prepend(HTMLfeaturedWorkTitle);
+    var count =1;
+
+    bio.works.forEach(function (work) {
+       work.projects.forEach(function (project) {
+           var workCount= '#work-'+count;
+           $('#featuredWork').append(HTMLfeaturedWorkCard.replace('%projectName%',project.title).replace('%id%',count).replace(
+                '%workEmployer%',work.employer));
+           if(hasObject(project.image)){
+                $(workCount).find('p').after(HTMLfeaturedWorkCardImage.replace('%dataDesktop%',project.image.destkop).replace(
+                    '%altImage%', project.image.alt));
+                if(hasObject(project.image.mobile)){
+                    $(workCount).find('picture').prepend(HTMLfeaturedWorkCardImageMobile.replace('%dataMobile%',project.image.mobile));
+                }
+           }
+
+           $(workCount).find('.works').append(HTMLfeaturedWorkCardDescription.replace('%projectDescription%', project.description));
+           $(workCount).find('.work_description').append(HTMLfeaturedWorkItems);
+
+           if(hasObject(project.client)){
+               $(workCount).find('.work_items').append(HTMLClientName.replace('%data%',project.client));
+           }
+           if(hasObject(work.jobPosition)){
+                $(workCount).find('.work_items').append(HTMLMainRole.replace('%data%',work.jobPosition));
+           }
+           if(hasObject(project.dates)){
+                $(workCount).find('.work_items').append(HTMLStartDate.replace('%data%',project.dates.start));
+                $(workCount).find('.work_items').append(HTMLEndDate.replace('%data%',project.dates.end));
+           }
+           if(hasObject(project.country)){
+               $(workCount).find('.work_items').append(HTMLCity.replace('%data%',project.country.city));
+               $(workCount).find('.work_items').append(HTMLCountry.replace('%data%',project.country.name).replace('%dataFlag%',
+                   project.country.flag));
+           }
+
+
+           count++;
+       });
+    });
+}

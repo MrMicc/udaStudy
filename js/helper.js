@@ -46,8 +46,61 @@ var HTMLmainSectionTextDiv =
     '<div id="mainContentText" class="main_content_about">' +
       '<h2>About</h2>'+
     '</div>';
-
 var HTMLmainSectionTextSpan =  '<span class="text_introduction">%data%</span>';
+
+//FEATURED SECTION
+var HTMLfeaturedWorkTitle =  '<h2 class="col-md-12">Featured Work</h2>';
+
+var HTMLfeaturedWorkCard =
+    '<aside id="work-%id%" class="col-sm-12 col-md-6 col-lg-4">' +
+    '<div class="works">' +
+    '<p>%projectName% - %workEmployer%</p>'+
+    '</div>' +
+    '</aside>'
+var HTMLfeaturedWorkCardImage =
+    '<picture>' +
+        '<img src="%dataDesktop%" alt="%altImage%">'+
+    '</picture>';
+var HTMLfeaturedWorkCardImageMobile = '<source media="(max-width: 565px)" srcset="%dataMobile%">';
+
+var HTMLfeaturedWorkCardDescription =
+    '<div class="work_description">'+
+        '<p class="work_introduction">%projectDescription%</p>'+
+    '</div>';
+
+var HTMLfeaturedWorkItems = '<ul class="work_items"></ul>';
+
+var HTMLClientName =
+    '<li>'+
+        '<span class="work_label">Contractor Name: </span>'+
+        '%data%'+
+    '</li>';
+var HTMLMainRole =
+    '<li>'+
+        '<span class="work_label">Main Role: </span>'+
+        '%data%'+
+    '</li>';
+var HTMLStartDate =
+    '<li>'+
+        '<span class="work_label">Start Date: </span>'+
+        '%data%'+
+    '</li>';
+var HTMLEndDate =
+    '<li>'+
+        '<span class="work_label">End Date: </span>'+
+        '%data%'+
+    '</li>';
+var HTMLCity =
+    '<li>'+
+        '<span class="work_label">City: </span>'+
+        '%data%'+
+    '</li>';
+var HTMLCountry =
+    '<li>'+
+        '<span class="work_label">Country: </span>'+
+        '%data%  %dataFlag%'+
+    '</li>';
+
 
 
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
@@ -171,7 +224,7 @@ function initializeMap() {
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
-    education.schools.forEach(function(school){
+    bio.education.schools.forEach(function(school){
       locations.push(school.location);
     });
 
@@ -179,8 +232,12 @@ function initializeMap() {
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
-    work.jobs.forEach(function(job){
-      locations.push(job.location);
+    bio.works.forEach(function(work){
+        "use strict";
+        work.jobs.forEach(function(job){
+        locations.push(job.location);
+
+        })
     });
 
     return locations;
