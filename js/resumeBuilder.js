@@ -5,15 +5,15 @@ This is empty on purpose! Your code to build the resume will go here.
 var bio = {
     name: "Luiz Miccieli",
     role: "Consultant",
-    aboutMe: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et " +
+    welcomeMessage: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et " +
     "dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea " +
     "commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     contact: {
         email: "luiz.miccieli@gmail.com",
         mobile: "+5561992584303",
         github: "MrMicc",
-        twitter: "@Mricc",
-        location: "Never land"
+        twitter: "@MrMicc",
+        location: "Brasília, Brasil"
     },
     biopic: "images/fry.jpg",
     logo: {
@@ -29,37 +29,98 @@ var bio = {
         desktop: "http://via.placeholder.com/965x350"
 
     },
-    welcomeMessage: "Hello Niggas",
     skills: ["consultant", "telcom", "nego doido"],
     works :[{
-        title: "Title of first job",
-        jobPosition: "manager",
-        employer: "Seguradora",
+        title: "Caixa Seguradora",
+        jobPosition: "Project Manager/Product Owner",
+        employer: "Millenium do Brasil",
         description: "Lorem Lorem Lorem Lorem lorem huahaii lore",
         dates: {
             start: "Setember - 2013",
-            end: "Until now"
+            end: "Until Today"
         },
-        location: "Brasilia",
+        location: "Brasília",
         projects: [{
-            title: "Title of first project",
-            client: "XPTO",
+            title: "New Logged Area",
+            client: "Caixa Seguradora",
             dates: {
-                start: 2012,
-                end: 2015
+                start: "01/Jul/2017",
+                end: "Until Today"
             },
             country: {
-                name: 'Esse nome',
-                city: 'essa ai',
+                name: 'Brazil',
+                city: 'Brasília',
                 flag: '🇧🇷'
             },
-            description: "Lorem ipsum lorem lorem aleluia",
+            description: "This project consist to redesign all user experience, integrations and the technological " +
+            "application of their approximately 9 million of clients in the logged area.",
             image: {
                 mobile: "http://via.placeholder.com/250x100",
                 destkop: "https://via.placeholder.com/300x150",
-                alt: "lorem lorem"
+                alt: "New logged area home page"
             }
-        }]
+            },
+            {
+                title: "Interine of all portal",
+                client: "Caixa Seguradora",
+                dates: {
+                    start: "14/Feb/2017",
+                    end: "30/Jun/2017"
+                },
+                country: {
+                    name: 'Brazil',
+                    city: 'Brasília',
+                    flag: '🇧🇷'
+                },
+                description: "It was responsible for all on going project, new projects and production support. Where portal" +
+                "consist in the web store, CMS communication and logged area of all products and segments of the insurance company.",
+                image: {
+                    mobile: "http://via.placeholder.com/250x100",
+                    destkop: "https://via.placeholder.com/300x150",
+                    alt: "New logged area home page"
+                }
+            },
+
+            {
+                title: "Coordinator",
+                client: "Caixa Seguradora",
+                dates: {
+                    start: "15/Jan/2015",
+                    end: "14/Feb/2017"
+                },
+                country: {
+                    name: 'Brazil',
+                    city: 'Brasília',
+                    flag: '🇧🇷'
+                },
+                description: "Was responsible the coordinating of all on going projects and new projects of 6 business unit under " +
+                "the entire web portal",
+                image: {
+                    mobile: "http://via.placeholder.com/250x100",
+                    destkop: "https://via.placeholder.com/300x150",
+                    alt: "New logged area home page"
+                }
+            },
+            {
+                title: "New Projects",
+                client: "Caixa Seguradora",
+                dates: {
+                    start: "10/Set/2014",
+                    end: "15/Jan/2015"
+                },
+                country: {
+                    name: 'Brazil',
+                    city: 'Brasília',
+                    flag: '🇧🇷'
+                },
+                description: "Responsible for planning of new projects that was the responsibility of the company IT directory",
+                image: {
+                    mobile: "http://via.placeholder.com/250x100",
+                    destkop: "https://via.placeholder.com/300x150",
+                    alt: "New logged area home page"
+                }
+            }
+        ]
         },
         {
             title: "Title of Second  job",
@@ -202,13 +263,24 @@ function mainSection() {
     }
 
 
-    if(hasObject(bio.aboutMe)){
+    if(hasObject(bio.welcomeMessage)){
         $('#mainSection').append(HTMLmainSectionTextDiv);
-        $('#mainContentText').append(HTMLmainSectionTextSpan.replace('%data%', bio.aboutMe));
+        $('#mainContentText').append(HTMLmainSectionTextSpan.replace('%data%', bio.welcomeMessage));
     }
 
     if(hasObject(bio.mainImage)){
         mountMainImage();
+    }
+}
+
+
+
+//Checking if the text has more then 120 words if has lets cut! :)
+function minifyText(text){
+    if(text.length>120){
+        return text.substring(0, 117)+'...';
+    }else{
+        return text;
     }
 }
 
@@ -236,7 +308,7 @@ function featuredWorkSection() {
                 }
            }
 
-           $(workCount).find('.works').append(HTMLfeaturedWorkCardDescription.replace('%projectDescription%', project.description));
+           $(workCount).find('.works').append(HTMLfeaturedWorkCardDescription.replace('%projectDescription%', minifyText(project.description)));
            $(workCount).find('.work_description').append(HTMLfeaturedWorkItems);
 
            if(hasObject(project.client)){
