@@ -55,6 +55,16 @@ HEADER
 }
 
 
+.menu {
+    text-align: left;
+    padding-top: 3.3%;
+
+}
+
+.dropdown-menu{
+    background-color: #f9faf9;
+}
+
 
 hr {
     border: 2px solid;

@@ -216,6 +216,7 @@ function header(){
         }
     }
 
+
     if(hasObject(bio.logo)){
         mountLogo();
 
@@ -225,6 +226,7 @@ function header(){
      * setting up the header name
      */
     if($('#headerLogo').length){ //Logo Exist?
+        $('#header').find('#headerLogo').after(HTMLheaderMenu);
         $('#headerName').addClass('header_title');
 
     }else{

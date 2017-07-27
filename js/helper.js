@@ -18,13 +18,15 @@ replace the %data% placeholder text you see in them.
  * HEADER HTML
  *
  *************************/
-var HTMLheaderLogo = '<div id="headerLogo" class="col-sm-6 col-md-6 col-lg-6 "></div>';
+var HTMLheaderLogo = '<div id="headerLogo" class="col-sm-2 col-md-2 col-lg-2 logo"></div>';
 var HTMLheaderLogoImages =
       '<picture>'+
         '<img src=%dataDesktop%  alt="Header logo of Project Portfolio">'+
       '</picture>';
 var HTMLheaderLogoImagesMobile = '<source media="(max-width: 565px)" srcset=%dataMobile%>';
 var HTMLheaderLogoImagesTablet =  '<source media="(max-width: 960px)" srcset=%dataTablet%>';
+
+var HTMLheaderMenu =  '<nav class="dropdown col-sm-4 col-md-4 col-lg-4 menu"><div class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown"> More... </div><ul class="dropdown-menu" aria-labelledby="dropdownMenu"><li><a href="a">Action</a></li> <li><a href="#">Another action</a></li><li><a href="#">Something else here</a></li><li role="separator" class="divider"></li><li><a href="#">Separated link</a></li></ul></nav>'
 
 
 /*************************
